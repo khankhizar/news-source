@@ -14,6 +14,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -26,6 +27,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import com.example.news_source.presentation.onboarding.OnBoardingScreen
+import com.example.news_source.ui.theme.NewsSourceTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,6 +36,12 @@ class MainActivity : ComponentActivity() {
         installSplashScreen()
         enableEdgeToEdge()
         setContent {
+            NewsSourceTheme(
+                dynamicColor = false
+            ){
+                Box(modifier = Modifier.background(MaterialTheme.colorScheme.background))
+                OnBoardingScreen()
+            }
            // SplashScreen()
         }
     }
@@ -66,8 +75,9 @@ fun SplashScreen(){
     }
 }
 
+/*
 @Preview(showBackground = true)
 @Composable
 fun PreviewSplashScreen(){
     SplashScreen()
-}
+}*/
